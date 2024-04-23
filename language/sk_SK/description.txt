@@ -1,0 +1,1 @@
+Poskytuje spôsoby prihlásenia do galérie pomocou konta Microsoft 365.
