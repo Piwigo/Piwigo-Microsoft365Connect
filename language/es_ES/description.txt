@@ -1,0 +1,1 @@
+Proporciona una manera de iniciar sesión en tu galería con tu cuenta de Microsoft 365.
