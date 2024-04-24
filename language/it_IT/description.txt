@@ -1,0 +1,1 @@
+Fornisce un modo per connettersi alla tua galleria tramite il tuo account Microsoft 365.
