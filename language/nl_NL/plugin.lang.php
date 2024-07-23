@@ -24,3 +24,7 @@ $lang['Authentication canceled'] = 'Authenticatie geannuleerd';
 $lang['Application Secret'] = 'Toepassingsgeheim';
 $lang['An error occured, please contact the gallery owner. <i>Error code : %s</i>'] = 'Er is een fout opgetreden. Neem contact op met de galerie-eigenaar. <i>Foutcode: %s</i>';
 $lang['Application Key'] = 'Toepassingssleutel';
+$lang['User not found'] = 'Gebruiker niet gevonden';
+$lang['Unable to perform login'] = 'Kan niet inloggen';
+$lang['Tenant ID'] = 'Huurder-ID';
+$lang['%s: invalid keys'] = '%s: ongeldige sleutels';
