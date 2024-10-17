@@ -7,13 +7,13 @@ jQuery("select.enable").change(function() {
   
   if ($(this).val()=='true') {
     $top.find("td.keys").show();
-    $top.removeClass('disabled');
-    $top.addClass('enabled');
+    $top.removeClass('m365Disabled');
+    $top.addClass('m365Enabled');
   }
   else {
     $top.find("td.keys").hide();
-    $top.removeClass('enabled');
-    $top.addClass('disabled');
+    $top.removeClass('m365Enabled');
+    $top.addClass('m365Disabled');
   }
 });
 {/footer_script}
@@ -26,7 +26,7 @@ jQuery("select.enable").change(function() {
 <fieldset id="commentsConf">
 
 {foreach from=$PROVIDERS item=provider key=p}
-  <div data-p="{$p}" class="provider {$p} {if $CONFIG[$p].enabled}enabled{else}disabled{/if}">
+  <div data-p="{$p}" class="provider {$p} {if isset($CONFIG[$p].enabled)}m365Enabled{else}m365Disabled{/if}">
     <h4>{$provider.name}</h4>
     
       <ol>
@@ -46,20 +46,20 @@ jQuery("select.enable").change(function() {
       </td>
       <td>
         <select name="providers[{$p}][enabled]" class="enable">
-          <option value="true" {if $CONFIG[$p].enabled}selected="selected"{/if}>{'Enabled'|translate}</option>
-          <option value="false" {if not $CONFIG[$p].enabled}selected="selected"{/if}>{'Disabled'|translate}</option>
+          <option value="true" {if isset($CONFIG[$p].enabled)}selected{/if}>{'Enabled'|translate}</option>
+          <option value="false" {if !isset($CONFIG[$p].enabled)}selected{/if}>{'Disabled'|translate}</option>
         </select>
       
       </td>
       
       {if $provider.new_app_link}
-      <td class="keys" {if not $CONFIG[$p].enabled}style="display:none;"{/if}>       
+      <td class="keys" {if !isset($CONFIG[$p].enabled)}style="display:none;"{/if}>       
           <label for="{$p}_key">{'Application Key'|translate}</label>
-          <input type="text" id="{$p}_key" name="providers[{$p}][keys][key]" value="{$CONFIG[$p].keys.key}">       
+      <input type="text" id="{$p}_key" name="providers[{$p}][keys][key]" {if isset($CONFIG[$p].keys.key)}value="{$CONFIG[$p].keys.key}"{/if}>       
           <label for="{$p}_secret">{'Application Secret'|translate}</label>
-          <input type="text" id="{$p}_secret" name="providers[{$p}][keys][secret]" value="{$CONFIG[$p].keys.secret}">
+      <input type="text" id="{$p}_secret" name="providers[{$p}][keys][secret]" {if isset($CONFIG[$p].keys.secret)}value="{$CONFIG[$p].keys.secret}"{/if}>
            <label for="{$p}_tenant">{'Tenant ID'|translate}</label>
-          <input type="text" id="{$p}_tenant" name="providers[{$p}][keys][tenant]" value="{$CONFIG[$p].keys.tenant}">        
+      <input type="text" id="{$p}_tenant" name="providers[{$p}][keys][tenant]" {if isset($CONFIG[$p].keys.tenant)}value="{$CONFIG[$p].keys.tenant}"{/if}>
       </td>
       {/if}
     </tr></table>

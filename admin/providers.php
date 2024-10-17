@@ -56,7 +56,7 @@ if (isset($_POST['save_config']))
 
 $template->assign(array(
   'PROVIDERS' => $PROVIDERS_CONFIG,
-  'CONFIG' => $hybridauth_conf['providers'],
+  'CONFIG' => $hybridauth_conf['providers'] ?? [],
   'SERVERNAME' => get_servername(),
   'WEBSITE' => get_absolute_root_url(),
   'M365CONNECT_CALLBACK' => M365CONNECT_PUBLIC . '?hauth.done=',
