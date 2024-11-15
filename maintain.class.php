@@ -41,7 +41,7 @@ class m365connect_maintain extends PluginMaintain
       $hybridauth_conf = include($this->file);
       if (!isset($hybridauth_conf['total']))
       {
-        $enabled = array_filter($hybridauth_conf['providers'], create_function('$p', 'return $p["enabled"];'));
+        $enabled = array_filter($hybridauth_conf['providers'], function($p) { return $p["enabled"]; });
         
         $hybridauth_conf['total'] = count($hybridauth_conf['providers']);
         $hybridauth_conf['enabled'] = count($enabled);
