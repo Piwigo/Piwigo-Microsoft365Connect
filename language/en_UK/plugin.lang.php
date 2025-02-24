@@ -23,3 +23,4 @@ $lang['User not found'] = 'User not found';
 $lang['Application Key'] = 'Application Key' ;
 $lang['Application Secret'] = 'Application Secret';
 $lang['Tenant ID'] = 'Tenant ID';
+$lang['Sign in with'] = 'Sign in with';

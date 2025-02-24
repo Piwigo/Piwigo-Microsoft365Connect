@@ -23,3 +23,4 @@ $lang['User not found'] = 'Utilisateur non trouvé';
 $lang['Application Key'] = 'ID d\'application' ;
 $lang['Application Secret'] = 'Secret d\'application';
 $lang['Tenant ID'] = 'ID de locataire';
+$lang['Sign in with'] = 'Connectez vous avec';

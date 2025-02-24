@@ -82,3 +82,42 @@ function m365connect_add_login_in_register($content)
   
   return str_replace($search, $replace, $content);
 }
+
+class m365connectMenu
+{
+  /**
+   * add a new menu block
+   */
+  static function m365connect_blockmanager_register_blocks($menu_ref_arr)
+  {
+    $menu = &$menu_ref_arr[0];
+
+    if ($menu->get_id() == 'menubar')
+    {
+      // identifier, title, owner
+      $menu->register_block(new RegisteredBlock('mbm365connect', l10n('M365Connect'), 'm365connect'));
+    }
+  }
+
+  /**
+   * fill the added menu block
+   */
+  static function m365connect_blockmanager($menu_ref_arr)
+  {
+    global $user, $template;
+    $menu = &$menu_ref_arr[0];
+
+    if (($block = $menu->get_block('mbm365connect')) != null)
+    {
+      $block->set_title(l10n('m365connect'));
+      $block->set_position(999);
+
+      $u_redirect = !empty($_GET['redirect']) ? urldecode($_GET['redirect']) : get_gallery_home_url();
+      m365connect_assign_template_vars($u_redirect);
+
+      $template->assign('USER_THEME', $user['theme']);
+
+      $block->template = realpath(M365CONNECT_PATH . 'template/identification_menubar.tpl');
+    }
+  }
+}

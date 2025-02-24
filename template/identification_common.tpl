@@ -9,7 +9,7 @@
   display:inline-block;
   background:url('plugins/m365connect/template/images/microsoft_graph.svg') 0px 0 no-repeat;
   width:108px;
-  height:108px;
+  min-height:25px;
 }
 {/html_style}
 

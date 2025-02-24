@@ -9,6 +9,9 @@ Author URI: https://solutions-opensource-pour-collectivites.fr
 Has Settings: true
 */
 
+// Advanced configuration parameters:
+// 'm365connect_display_in_primary_navbar' is used to display the microsoft logo in the navbar
+
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
 if (basename(dirname(__FILE__)) != 'm365connect')
@@ -71,5 +74,12 @@ function m365connect_init()
     {
       $page['warnings'][] = l10n('Microsoft 365 Connect: PHP Curl extension is needed');
     }
-  }  
+  } 
+
+  if(is_a_guest() and conf_get_param('m365connect_display_in_primary_navbar', false)){
+    add_event_handler('blockmanager_register_blocks', array('m365connectMenu', 'm365connect_blockmanager_register_blocks'),
+      EVENT_HANDLER_PRIORITY_NEUTRAL-1);
+    add_event_handler('blockmanager_apply', array('m365connectMenu', 'm365connect_blockmanager'),
+      EVENT_HANDLER_PRIORITY_NEUTRAL);
+  }
 }
