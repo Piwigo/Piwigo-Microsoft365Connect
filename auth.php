@@ -72,6 +72,7 @@ try {
       }
 
       $template->assign('REDIRECT_TO', $redirect_to);
+      $template->assign('ABS_ROOT_URL', rtrim(get_gallery_home_url(), '/').'/');
 
   } else {
     $_SESSION['page_errors'][] = l10n('Authentication canceled');
